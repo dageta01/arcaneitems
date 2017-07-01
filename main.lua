@@ -27,7 +27,7 @@ function strange:onUpdate(player, room)
 	room = game:GetRoom()
 	level = game:GetLevel()
 	
-	if  player:HasCollectible(modItems.AMULET) then
+	if  not hasItems.Amulet and player:HasCollectible(modItems.AMULET) then
 		player:AddNullCostume(strange.COSTUME_STRANGE_AMULET)
 		hasItems.Amulet = true
 	end
@@ -55,7 +55,7 @@ function strange:onUpdate(player, room)
 	if myCacheFlag == CacheFlag.CACHE_DAMAGE then
 		if player:HasCollectible(modItems.AMULET) then
 			player.Damage = 1.01*(player.Damage + 0.69)
-			hasItems.Amulet = true
+			--hasItems.Amulet = true
 		end
 	end
 end
