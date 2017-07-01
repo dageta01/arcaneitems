@@ -2,7 +2,7 @@
 	<Info CreatedBy="Unknown" CreatedOn="7/1/2017 12:55:25 AM" Version="26" Fps="30"/>
 	<Content>
 		<Spritesheets>
-			<Spritesheet Path="costumes\strange_cloak.png" Id="0"/>
+			<Spritesheet Path="costumes\arcane_cloak.png" Id="0"/>
 			<Spritesheet Path="costumes\Transformation_EvilAngel_head.png" Id="1"/>
 		</Spritesheets>
 		<Layers>

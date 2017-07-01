@@ -2,7 +2,7 @@
 	<Info CreatedBy="robot" CreatedOn="7/1/2017 12:04:08 AM" Version="105" Fps="30"/>
 	<Content>
 		<Spritesheets>
-			<Spritesheet Path="costumes\strange_glow.png" Id="0"/>
+			<Spritesheet Path="costumes\arcane_glow.png" Id="0"/>
 		</Spritesheets>
 		<Layers>
 			<Layer Name="glow" Id="0" SpritesheetId="0"/>
