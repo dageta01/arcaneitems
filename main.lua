@@ -3,6 +3,8 @@ local strange = RegisterMod("Strange Items", 1)
 
 --animation stuff
 strange.COSTUME_STRANGE_AMULET = Isaac.GetCostumeIdByPath("gfx/characters/strange_glow.anm2")
+strange.COSTUME_STRANGE_CLOAK = Isaac.GetCostumeIdByPath("gfx/characters/strange_cloak.anm2")
+
 --variable declarations
 local game = Game()
 local player
@@ -31,6 +33,11 @@ function strange:onUpdate(player, room)
 		player:AddNullCostume(strange.COSTUME_STRANGE_AMULET)
 		hasItems.Amulet = true
 	end
+  
+  if not hasItems.Cloak and player:HasCollectible(modItems.CLOAK) then
+    player:AddNullCostume(strange.COSTUME_STRANGE_CLOAK)
+    hasItems.Cloak = true
+  end
 	if player:IsDead() and player:HasCollectible(modItems.AMULET) and resAllowed and room:GetType() == RoomType.ROOM_BOSS then
 		player:Revive()
 		--TODO: Go back one room, pop up text and hold up item
@@ -68,6 +75,7 @@ end
 	end
 end
 ]]--
+
 
 strange:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, strange.onUpdate)
 strange:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, strange.Init)
