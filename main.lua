@@ -34,10 +34,10 @@ function strange:onUpdate(player, room)
 		hasItems.Amulet = true
 	end
   
-  if not hasItems.Cloak and player:HasCollectible(modItems.CLOAK) then
-    player:AddNullCostume(strange.COSTUME_STRANGE_CLOAK)
-    hasItems.Cloak = true
-  end
+	if not hasItems.Cloak and player:HasCollectible(modItems.CLOAK) then
+		player:AddNullCostume(strange.COSTUME_STRANGE_CLOAK)
+		hasItems.Cloak = true
+	end
 	if player:IsDead() and player:HasCollectible(modItems.AMULET) and resAllowed and room:GetType() == RoomType.ROOM_BOSS then
 		player:Revive()
 		--TODO: Go back one room, pop up text and hold up item
@@ -52,6 +52,8 @@ function strange:onUpdate(player, room)
 	end
 	end
 
+-------------------------------------
+	
 	function strange:onCache(player,myCacheFlag)-- update stats and flying
 	if myCacheFlag == CacheFlag.CACHE_FLYING then
 		if player:HasCollectible(modItems.CLOAK) then
@@ -66,6 +68,8 @@ function strange:onUpdate(player, room)
 		end
 	end
 end
+
+----------------------------------------
 
 --[[function strange:onNewLevel() --Check if final floors(hopefully)
 	game = Game()
