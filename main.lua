@@ -1,9 +1,9 @@
-local strange = RegisterMod("Strange Items", 1)
+local arcane = RegisterMod("Aracne Items", 1)
 
 
 --animation stuff
-strange.COSTUME_STRANGE_AMULET = Isaac.GetCostumeIdByPath("gfx/characters/strange_glow.anm2")
-strange.COSTUME_STRANGE_CLOAK = Isaac.GetCostumeIdByPath("gfx/characters/strange_cloak.anm2")
+arcane.COSTUME_ARCANE_AMULET = Isaac.GetCostumeIdByPath("gfx/characters/arcane_glow.anm2")
+arcane.COSTUME_ARCANE_CLOAK = Isaac.GetCostumeIdByPath("gfx/characters/arcane_cloak.anm2")
 
 --variable declarations
 local game = Game()
@@ -12,8 +12,8 @@ local room
 local level
 local resAllowed = true
 local modItems = {
-	AMULET = Isaac.GetItemIdByName("Strange Amulet"),
-	CLOAK = Isaac.GetItemIdByName("Strange Cloak")
+	AMULET = Isaac.GetItemIdByName("Arcane Amulet"),
+	CLOAK = Isaac.GetItemIdByName("Arcane Cloak")
 }
 
 local hasItems = {
@@ -23,19 +23,19 @@ local hasItems = {
 
 -----------------------------------
 
-function strange:onUpdate(player, room)
+function arcane:onUpdate(player, room)
 	game = Game()
 	player = game:GetPlayer(0)
 	room = game:GetRoom()
 	level = game:GetLevel()
 	
 	if  not hasItems.Amulet and player:HasCollectible(modItems.AMULET) then
-		player:AddNullCostume(strange.COSTUME_STRANGE_AMULET)
+		player:AddNullCostume(arcane.COSTUME_ARCANE_AMULET)
 		hasItems.Amulet = true
 	end
   
 	if not hasItems.Cloak and player:HasCollectible(modItems.CLOAK) then
-		player:AddNullCostume(strange.COSTUME_STRANGE_CLOAK)
+		player:AddNullCostume(arcane.COSTUME_ARCANE_CLOAK)
 		hasItems.Cloak = true
 	end
 	if player:IsDead() and player:HasCollectible(modItems.AMULET) and resAllowed and room:GetType() == RoomType.ROOM_BOSS then
@@ -54,7 +54,7 @@ function strange:onUpdate(player, room)
 
 -------------------------------------
 	
-	function strange:onCache(player,myCacheFlag)-- update stats and flying
+	function arcane:onCache(player,myCacheFlag)-- update stats and flying
 	if myCacheFlag == CacheFlag.CACHE_FLYING then
 		if player:HasCollectible(modItems.CLOAK) then
 			player.CanFly = true
@@ -71,7 +71,7 @@ end
 
 ----------------------------------------
 
---[[function strange:onNewLevel() --Check if final floors(hopefully)
+--[[function arcane:onNewLevel() --Check if final floors(hopefully)
 	game = Game()
 	level = Game():GetLevel()
 	if level >= LevelStage.STAGE6 then
@@ -81,11 +81,11 @@ end
 ]]--
 
 
-strange:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, strange.onUpdate)
-strange:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, strange.Init)
-strange:AddCallback(ModCallbacks.MC_POST_UPDATE, strange.onUpdate, EntityType.ENTITY_PLAYER)
-strange:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, strange.onCache)
-strange:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL, strange.onNewLevel)
+arcane:AddCallback(ModCallbacks.MC_POST_PEFFECT_UPDATE, arcane.onUpdate)
+arcane:AddCallback(ModCallbacks.MC_POST_GAME_STARTED, arcane.Init)
+arcane:AddCallback(ModCallbacks.MC_POST_UPDATE, arcane.onUpdate, EntityType.ENTITY_PLAYER)
+arcane:AddCallback(ModCallbacks.MC_EVALUATE_CACHE, arcane.onCache)
+arcane:AddCallback(ModCallbacks.MC_POST_NEW_LEVEL, arcane.onNewLevel)
 
---strange:AddCallback(ModCallbacks.MC_POST_UPDATE, strange.onFirstFrame)
---strange:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, strange.onDamage,EntityType.ENTITY_PLAYER)
+--arcane:AddCallback(ModCallbacks.MC_POST_UPDATE, arcane.onFirstFrame)
+--arcane:AddCallback(ModCallbacks.MC_ENTITY_TAKE_DMG, arcane.onDamage,EntityType.ENTITY_PLAYER)

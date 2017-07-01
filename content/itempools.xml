@@ -1,10 +1,10 @@
 <ItemPools>
 	<Pool Name="treasure">
-		<Item Name = "Strange Amulet" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
-		<Item Name = "Strange Cloak" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
+		<Item Name = "Arcane Amulet" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
+		<Item Name = "Arcane Cloak" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
 	</Pool>
 	<Pool Name="devil">
-		<Item Name = "Strange Amulet" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
-		<Item Name = "Strange Cloak" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
+		<Item Name = "Arcane Amulet" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
+		<Item Name = "Arcane Cloak" Weight = "1" DecreaseBy = "0.5" RemoveOn="0.1" />
 	</Pool>
 </ItemPools>

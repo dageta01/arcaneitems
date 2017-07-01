@@ -1,4 +1,4 @@
 <items gfxroot="gfx/items/" version = "1"> 
-	<passive cache = "flying" name = "Strange Cloak" description="Friendly flight" gfx="s_cloak.png" />
-	<passive cache = "damage luck" name = "Strange Amulet" description="Bargaining Chip" gfx="s_amulet.png" />
+	<passive cache = "flying" name = "Arcane Cloak" description="Friendly flight" gfx="arcane_cloak.png" />
+	<passive cache = "damage luck" name = "Arcane Amulet" description="There's no eye in bargain" gfx="arcane_amulet.png" />
 </items>
